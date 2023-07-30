@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# display current directory
+for i in $(ls)
+do
+	echo "$(echo "$i" | cut -d '-' -f 2)"
+done
