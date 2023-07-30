@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # display current directory
-for i in $(ls)
+for i in *
 do
-	echo "$(echo "$i" | cut -d '-' -f 2)"
+	out=$(echo "$i" | cut -d '-' -f 2)
+	echo "$out"
 done
