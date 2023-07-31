@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# control on file
+file="/etc/passwd"
+# open file
+exec 3< "$file"
+while read -r line <&3
+do
+	out=$(echo "$line" | cut -d ':' -f 1,3,6)
+	echo "$out"
+done
+# close file
+exec 3<&-
