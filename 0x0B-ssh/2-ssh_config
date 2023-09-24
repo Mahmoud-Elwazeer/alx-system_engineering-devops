@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Client configuration file
+
+Host connect_server
+	HostName 54.237.20.172
+	User ubuntu
