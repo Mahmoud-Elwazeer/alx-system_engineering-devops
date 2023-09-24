@@ -1,6 +1,3 @@
-#!/usr/bin/env bash
-# Client configuration file
-
-Host connect_server
+Host school
 	HostName 54.237.20.172
 	User ubuntu
