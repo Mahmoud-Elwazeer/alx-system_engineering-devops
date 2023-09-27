@@ -10,5 +10,5 @@ if [ $len -lt 3 ]; then
 # elif [ $len -lt 4 ]; then
 #     scp -i $4 $1 $3@$2:~/
 else
-    scp $SCP_OPTIONS -i $1 $3@$2:~/
+    scp $SCP_OPTIONS -i $4 $1 $3@$2:~/
 fi
