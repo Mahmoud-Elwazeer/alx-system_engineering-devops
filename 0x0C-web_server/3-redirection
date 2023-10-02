@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # redirect me
 echo "redirect me" > /var/www/tech.local/redirect_me.html
+sudo service nginx start
