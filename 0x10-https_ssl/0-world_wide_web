@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# add subdomain
+
+if [ $# -eq 1 ]; then
+    sub1=$(dig +short "www.$1")
+    sub2=$(dig +short "lb-01.$1")
+    sub3=$(dig +short "web-01.$1")
+    sub4=$(dig +short "web-02.$1")
+
+    echo "The subdomain www is a A record and points to $sub1"
+    echo "The subdomain lb-01 is a A record and points to $sub2"
+    echo "The subdomain web-01 is a A record and points to $sub3"
+    echo "The subdomain web-02 is a A record and points to $sub4"
+elif [ $# -eq 2 ]; then
+    sub=$(dig +short "$2.$1")
+    echo "The subdomain $2 is a A record and points to $sub"
+fi
