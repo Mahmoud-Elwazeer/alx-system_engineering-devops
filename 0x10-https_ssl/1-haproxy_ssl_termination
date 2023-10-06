@@ -1,0 +1,14 @@
+frontend httpsandhttp
+        bind *:80
+        bind *:443 ssl crt /etc/haproxy/haproxy.pem
+        timeout client 60s
+        mode http
+
+        default_backend allservers
+
+backend allservers
+        timeout connect 20s
+        timeout server 100s
+        mode http
+        server web_01 54.174.242.67
+        server web_02 54.173.71.78
