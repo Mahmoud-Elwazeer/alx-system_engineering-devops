@@ -1,0 +1,14 @@
+sudo apt-get install ufw -y
+sudo ufw enable
+sudo ufw allow 22
+sudo ufw allow 443
+sudo ufw allow 80
+
+sudo vi /etc/ufw/before.rules
+
+# add this in first lines
+
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+COMMIT
