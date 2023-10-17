@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# run as a root
+su $1
+whoami
