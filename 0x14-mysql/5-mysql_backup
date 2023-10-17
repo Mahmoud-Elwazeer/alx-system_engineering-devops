@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# generates a MySQL dump and creates a compressed archive out of it.
