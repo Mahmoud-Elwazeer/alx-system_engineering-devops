@@ -7,7 +7,7 @@ import urllib.request
 
 def main():
     """main function"""
-    url = "https://jsonplaceholder.typicode.com/todos/" + sys.argv[1]
+    url = "https://jsonplaceholder.typicode.com/todos/users" + sys.argv[1]
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as response:
         content = response.read()
