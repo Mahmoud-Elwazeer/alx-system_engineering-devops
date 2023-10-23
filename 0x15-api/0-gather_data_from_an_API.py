@@ -8,21 +8,25 @@ import sys
 def main():
     """main function"""
     url = "https://jsonplaceholder.typicode.com/"
-    req_personal = requests.get(url + "users/{}".format(sys.argv[1]))
-    req_data = requests.get(url + "todos/{}".format(sys.argv[1]))
+    req_personal = requests.get(url + "users/{}".format(sys.argv[1])).json()
+    req_data = requests.get(url + "todos", params={"userId": sys.argv[1]}).json()
     
-    personal_dict = json.loads(req_personal.content)
-    data_dict = json.loads(req_data.content)
-    
-    employee_name = personal_dict.get("name")
-    done_tasks = data_dict.get("userId")
-    total_tasks = data_dict.get("completed")
-    title = data_dict.get("title")
+    employee_name = req_personal.get("name")
+    total_tasks = len(req_data)
+    done_tasks = list(filter(lambda x:x.get("completed") is True, req_data))
+    title = [x['title'] for x in done_tasks]
+    num_done = len(done_tasks)
 
 
     print("Employee {} is done with tasks \
-        ({}/{}):".format(employee_name, done_tasks, total_tasks))
-    print("\t  {}".format(title))
+        ({}/{}):".format(employee_name, num_done, total_tasks))
+    for task in title:
+        print("\t  {}".format(task))
+
+
+    # print("Employee {} is done with tasks \
+    #     ({}/{}):".format(employee_name, done_tasks, total_tasks))
+    # print("\t  {}".format(title))
 
 
 if __name__ == "__main__":
