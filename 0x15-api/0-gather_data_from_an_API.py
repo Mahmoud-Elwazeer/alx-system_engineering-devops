@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """import libraries"""
 import json
 import sys
@@ -6,6 +6,7 @@ import urllib.request
 
 
 def main():
+    """main function"""
     url = "https://jsonplaceholder.typicode.com/todos/" + sys.argv[1]
     req = urllib.request.Request(url)
     with urllib.request.urlopen(req) as response:
