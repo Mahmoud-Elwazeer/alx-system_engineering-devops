@@ -19,16 +19,20 @@ def main():
     lst = []
     for c in req_data:
         sub_lst = []
-        sub_lst.append(c.get("userId"))
+        sub_lst.append(str(c.get("userId")))
         sub_lst.append(employee_name)
-        sub_lst.append(c.get("completed"))
+        sub_lst.append(str(c.get("completed")))
         sub_lst.append(c.get("title"))
+        # result = ' '.join(sub_lst)
+        # words = result.split()
+        # quoted_words = ['"' + word + '"' for word in words]
+        # print(quoted_words)
         lst.append(sub_lst)
 
     file_name = "{}.csv".format(sys.argv[1])
 
     with open(file_name, 'w', newline='') as file:
-        csvwriter = csv.writer(file)
+        csvwriter = csv.writer(file, quoting=csv.QUOTE_ALL)
         csvwriter.writerows(lst)
 
 
