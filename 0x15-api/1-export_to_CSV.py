@@ -15,18 +15,17 @@ def main():
                 "userId": sys.argv[1]}).json()
 
     employee_name = req_personal.get("name")
-    done_tasks = list(filter(lambda x: x.get("completed") is True, req_data))
 
     lst = []
-    for c in done_tasks:
+    for c in req_data:
         sub_lst = []
-        sub_lst.append(c["id"])
+        sub_lst.append(c["userId"])
         sub_lst.append(employee_name)
         sub_lst.append(c["completed"])
         sub_lst.append(c["title"])
         lst.append(sub_lst)
 
-    file_name = "USER_ID.csv"
+    file_name = "{}.csv".format(sys.argv[1])
 
     with open(file_name, 'w', newline='') as file:
         csvwriter = csv.writer(file)
