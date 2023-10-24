@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """import libraries"""
-import json
 import csv
+import json
 import requests
 import sys
 
@@ -14,7 +14,7 @@ def main():
     req_data = requests.get(url + "todos", params={
                 "userId": sys.argv[1]}).json()
 
-    employee_name = req_personal.get("name")
+    employee_name = req_personal.get("username")
 
     lst = []
     for c in req_data:
