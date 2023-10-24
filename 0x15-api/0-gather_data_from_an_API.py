@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """import libraries"""
-import json
 import requests
 import sys
 
