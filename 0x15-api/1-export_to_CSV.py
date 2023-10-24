@@ -30,7 +30,7 @@ def main():
 
     with open(file_name, 'w', newline='') as file:
         csvwriter = csv.writer(file)
-        csvwriter.writerows(lst) 
+        csvwriter.writerows(lst)
 
 
 if __name__ == "__main__":
