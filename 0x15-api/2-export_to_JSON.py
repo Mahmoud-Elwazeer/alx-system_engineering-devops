@@ -16,14 +16,15 @@ def main():
 
     employee_name = req_personal.get("username")
 
-    lst = []
-    lst.append(sys.argv[1])
+    sub_lst = []
     for c in req_data:
         sub_dct = {}
         sub_dct["task"] = c.get("title")
         sub_dct["completed"] = c.get("completed")
         sub_dct["username"] = employee_name
-        lst.append(sub_dct)
+        sub_lst.append(sub_dct)
+
+    lst = {"{}".format(sys.argv[1]): sub_lst}
 
     file_name = "{}.json".format(sys.argv[1])
 
