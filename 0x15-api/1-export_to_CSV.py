@@ -9,7 +9,7 @@ import sys
 def main():
     """main function"""
     url = "https://jsonplaceholder.typicode.com/"
-    req_personal = requests.get(url + "users/{}".format(
+    req_personal = requests.get(url + "users?id={}".format(
                 sys.argv[1])).json()
     req_data = requests.get(url + "todos", params={
                 "userId": sys.argv[1]}).json()
@@ -19,10 +19,10 @@ def main():
     lst = []
     for c in req_data:
         sub_lst = []
-        sub_lst.append(c["userId"])
+        sub_lst.append(c.get("userId"))
         sub_lst.append(employee_name)
-        sub_lst.append(c["completed"])
-        sub_lst.append(c["title"])
+        sub_lst.append(c.get("completed"))
+        sub_lst.append(c.get("title"))
         lst.append(sub_lst)
 
     file_name = "{}.csv".format(sys.argv[1])
