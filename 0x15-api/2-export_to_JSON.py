@@ -9,7 +9,7 @@ import sys
 def main():
     """main function"""
     url = "https://jsonplaceholder.typicode.com/"
-    req_personal = requests.get(url + "users?id={}".format(
+    req_personal = requests.get(url + "users/{}".format(
                 sys.argv[1])).json()
     req_data = requests.get(url + "todos", params={
                 "userId": sys.argv[1]}).json()
