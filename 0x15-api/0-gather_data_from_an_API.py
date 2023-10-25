@@ -18,10 +18,10 @@ def main():
     title = [x['title'] for x in done_tasks]
     num_done = len(done_tasks)
 
-    print("Employee {} is done with tasks \
-        ({}/{}):".format(employee_name, num_done, total_tasks))
+    print("Employee {} is done with tasks({}/{}):".format(
+        employee_name, num_done, total_tasks))
     for task in title:
-        print("\t  {}".format(task))
+        print("\t {}".format(task))
 
 
 if __name__ == "__main__":
