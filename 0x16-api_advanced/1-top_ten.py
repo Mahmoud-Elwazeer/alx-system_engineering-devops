@@ -19,4 +19,4 @@ def top_ten(subreddit):
             print(title.get("data").get("title"))
 
     except Exception:
-        return (0)
+        print (None)
