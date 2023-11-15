@@ -1,0 +1,15 @@
+server {
+        listen 80 default_server;
+        index index.html index.htm;
+        server_name mahmoudelwazeer.tech;
+        add_header X-Served-By 374876-web-01;
+        root /var/www/html;
+
+        location /hbnb_static/{
+                alias /data/web_static/current/;
+        }
+        location /{
+            proxy_pass http://localhost:5000;
+        }
+
+}
